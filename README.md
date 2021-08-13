@@ -13,7 +13,7 @@ PostgreSQL driver
 
 ## Other
 The docker images of the project are pushed to the following repositories of the dockerhub
-  haylemichealberihun/employee-managment
-  haylemichealberihun/eureka-server
-  haylemichealberihun/postgres-emp
+  ### haylemichealberihun/employee-managment
+  ### haylemichealberihun/eureka-server
+  ### haylemichealberihun/postgres-emp
   
