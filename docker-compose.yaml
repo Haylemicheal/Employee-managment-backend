@@ -1,0 +1,28 @@
+version: '2'
+
+services:
+  app:
+    image: 'employee-managment:latest'
+    ports:
+      - "9090:9090"
+    depends_on:
+      - db
+      - eureka
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/employee_managment
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=new_password
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+      - EUREKA.CLIENT.SERVICEURL.DEFAULTZONE= http://eureka:8761/eureka
+  eureka:
+    image: 'eureka:latest'
+    ports:
+      - "8761:8761"
+
+  db:
+    image: 'postgres:13.1-alpine'
+    container_name: db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=new_password
+      - POSTGRES_DB=employee_managment
