@@ -17,6 +17,7 @@ The Eureka naming server is used to register the projet as a microservice.
 
 ## Images
 The docker images of the project are pushed to the following repositories of the dockerhub
+  * haylemichealberihun/empman-front
   * haylemichealberihun/employee-managment
   * haylemichealberihun/eureka-server
   * haylemichealberihun/postgres-emp
