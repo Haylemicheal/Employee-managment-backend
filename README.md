@@ -6,14 +6,18 @@ put for data updating, and delete for data deletion. The project uses postgreSQL
 The Eureka naming server is used to register the projet as a microservice. 
 
 ## Dependencies
-Spring Web
-Spring Boot devtools
-Spring data JPA
-PostgreSQL driver
+* Spring Web
+* Spring Boot devtools
+* Spring data JPA
+* PostgreSQL driver
 
-## Other
+## Repositories
+* [The Frontend](https://github.com/Haylemicheal/Employee-managment-frontend.git)
+* [The Eureka Server](https://github.com/Haylemicheal/Eureka-Server.git)
+
+## Images
 The docker images of the project are pushed to the following repositories of the dockerhub
-  ### haylemichealberihun/employee-managment
-  ### haylemichealberihun/eureka-server
-  ### haylemichealberihun/postgres-emp
+  * haylemichealberihun/employee-managment
+  * haylemichealberihun/eureka-server
+  * haylemichealberihun/postgres-emp
   
