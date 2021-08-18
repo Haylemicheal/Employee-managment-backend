@@ -30,7 +30,6 @@ jobs:
           name: Wait for DB
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run: sudo apt update && sudo apt install postgresql-client
-      - run: psql -U postgres -c "create database employee_managment"
       - run:
           name: Test
           command: mvn test
