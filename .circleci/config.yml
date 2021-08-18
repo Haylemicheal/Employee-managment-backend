@@ -11,6 +11,14 @@ jobs:
     # A list of available CircleCI Docker Convenience Images are available here: https://circleci.com/developer/images/image/cimg/openjdk
     docker:
       - image: cimg/openjdk:11.0
+        environment:
+          - PGHOST: 127.0.0.1
+      - image: circleci/postgres:13.1-alpine
+          environment:
+            POSTGRES_USER: postgres
+            POSTGRES_DB: employee_managment
+            POSTGRES_PASSWORD: new_password
+    working_directory: ~/repo
     steps:
       # Checkout the code as the first step.
       - checkout
@@ -19,6 +27,18 @@ jobs:
           name: Build
           command: mvn -B -DskipTests clean package
       # Then run your tests!
+      - run:
+          name: install dockerize
+          command: wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
+          && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
+          && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+          environment:
+            - DOCKERIZE_VERSION v0.6.1
+      - run:
+          name: Wait for DB
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+      - run: sudo apt update && sudo apt install postgresql-client
+      - run: psql -U postgres -c "create database employee_managment"
       - run:
           name: Test
           command: mvn test
