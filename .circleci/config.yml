@@ -11,7 +11,7 @@ jobs:
     # A list of available CircleCI Docker Convenience Images are available here: https://circleci.com/developer/images/image/cimg/openjdk
     docker:
       - image: cimg/openjdk:11.0
-      - image: circleci/postgres:13.1-alpine
+      - image: circleci/postgres:9.6.2-alpine
         environment:
             POSTGRES_USER: postgres
             POSTGRES_DB: employee_managment
